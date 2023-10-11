@@ -1,8 +1,6 @@
-use lexer::Lexer;
+extern crate sap;
 
-use crate::lexer::TokenKind;
-
-mod lexer;
+use sap::lexer::{Lexer, token::TokenKind};
 
 fn main() {
 
