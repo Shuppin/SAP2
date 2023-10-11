@@ -50,3 +50,12 @@ pub struct Token {
     // Could be useful for error reporting
     // pub span: Range<usize>
 }
+
+impl Token {
+    pub fn empty() -> Self {
+        Self {
+            kind: TokenKind::Eof,
+            pos: Pos { line: 0, col: 0 },
+        }
+    }
+}
