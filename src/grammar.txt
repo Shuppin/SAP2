@@ -1,0 +1,37 @@
+// 6. Variables
+x = 10
+PI = 3.14
+
+// 7. Basic Arithmetic
+circumference = 2*PI*x
+my_expression = 1+2-3*4/5
+
+// 9. Built-in Functions
+print(circumference)
+
+// 10. User-Defined Functions
+fn some_cool_function(a, b)
+    sum = a + b
+    return sum*(a-b)
+end
+
+result = some_cool_function(circumference, my_expression)
+
+// 11. If/Else Statements
+if result > 5 then
+    // Do something
+end
+
+
+// 12. While loops
+
+while x < 20 do
+    x = x + 1
+end
+
+// 14. External imports
+import yes
+
+// Lists?
+
+x =   [1,2,3,4]
