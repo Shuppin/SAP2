@@ -1,20 +1,37 @@
-Variables
+<program> -> <stmt_list> `Eof`
+
+<stmt_list> -> (<stmt> `Seperator`)* | <stmt> 
+
+<stmt> -> <assignment_stmt>
+        | <function_call>
+        | <return_stmt>
+        | <function_decl>
+        | <selection_stmt>
+        | <while_stmt>
+        | <list_stmt>
+
+// Will improve this syntax later
+<import_stmt> -> `Import` `Ident`
+
 <assignment_stmt> -> `Ident` `Assign` <expr>
 
-/*
-a and or b              <bool_expr>
-not a                   <neg_expr>
-a == != > < >= <= b     <comp_expr>
-a +- b                  <add_expr>
-a */ b                  <mult_expr>
-a % b                   <mod_expr>
-*/
+<function_call> -> `Ident` `Lparen` (<empty> | <expr> (`Comma` <expr>)*) `Rparen`
+
+<return_stmt> -> `Return` <expr>
+
+<function_decl> -> `Fn` `Ident` (<empty> | <expr> (`Comma` <expr>)*) <stmt_list> `End`
+
+<selection_stmt> -> `If` <expr> `Then` <stmt_list> (`Elif` <expr> `Then` <stmt_list>)* (`Else` <stmt_list>)? `End`
+
+<while_stmt> -> `While` <expr> `Do` <stmt_list> `End`
+
+<list_stmt> -> `LBracket` ((<expr> `Comma`)* | <expr>) `RBracket`
 
 <expr> -> <bool_expr>
 
-<bool_expr> -> <neg_expr> ((`And` | `Or`) <neg_expr>)*
+<bool_expr> -> <not_expr> ((`And` | `Or`) <not_expr>)*
 
-<neg_expr> -> `Not`+ <comp_expr>
+<not_expr> -> `Not`+ <comp_expr>
 
 <comp_expr> -> <add_expr> ((`Eq`|`NotEq`|`Less`|`LessEq`|`More`|`MoreEq`) <add_expr>)*
 
@@ -30,6 +47,8 @@ a % b                   <mod_expr>
         | `Lparen` <expr> `RParen`
         | `Ident`
         | `Bool`
-        | <procedure_call>
+        | <function_call>
+
+<empty> ->
 
 
