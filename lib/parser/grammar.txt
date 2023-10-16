@@ -1,0 +1,35 @@
+Variables
+<assignment_stmt> -> `Ident` `Assign` <expr>
+
+/*
+a and or b              <bool_expr>
+not a                   <neg_expr>
+a == != > < >= <= b     <comp_expr>
+a +- b                  <add_expr>
+a */ b                  <mult_expr>
+a % b                   <mod_expr>
+*/
+
+<expr> -> <bool_expr>
+
+<bool_expr> -> <neg_expr> ((`And` | `Or`) <neg_expr>)*
+
+<neg_expr> -> `Not`+ <comp_expr>
+
+<comp_expr> -> <add_expr> ((`Eq`|`NotEq`|`Less`|`LessEq`|`More`|`MoreEq`) <add_expr>)*
+
+<add_expr> -> <mult_expr> ((`Plus` | `Minus`) <mult_expr>)
+
+<mult_expr> -> <mod_expr> ((`Mult` | `Div`) <mod_expr>)*
+
+<mod_expr> -> <entity> (`Mod` <entity>)*
+
+<entity> -> `Int`
+        | `Float`
+        | `Minus` <entity>
+        | `Lparen` <expr> `RParen`
+        | `Ident`
+        | `Bool`
+        | <procedure_call>
+
+
