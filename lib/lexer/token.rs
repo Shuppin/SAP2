@@ -24,6 +24,7 @@ pub enum TokenKind {
     Import,
     Fn,
     If,
+    Elif,
     Else,
     Then,
     While,

@@ -176,6 +176,7 @@ impl Lexer {
                     "import" => TokenKind::Import,
                     "fn" => TokenKind::Fn,
                     "if" => TokenKind::If,
+                    "elif" => TokenKind::Elif,
                     "else" => TokenKind::Else,
                     "then" => TokenKind::Then,
                     "while" => TokenKind::While,
