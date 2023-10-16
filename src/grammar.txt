@@ -20,7 +20,12 @@ result = some_cool_function(circumference, my_expression)
 // 11. If/Else Statements
 if result > 5 then
     // Do something
+elif something then
+    // Do another thing
+else
+    // Tada!
 end
+
 
 
 // 12. While loops
