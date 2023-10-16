@@ -247,6 +247,18 @@ mod tests {
         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Ident("j".to_string()), pos: Pos { line: 3, col: 34 } });
         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Then, pos: Pos { line: 3, col: 36 } });
         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::End, pos: Pos { line: 3, col: 41 } });
+        
+        let src = "if result then /*Something*/ elif something then /*Something*/ else end";
+        let mut lexer = Lexer::new(src);
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::If, pos: Pos { line: 1, col: 1 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Ident("result".to_string()), pos: Pos { line: 1, col: 4 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Then, pos: Pos { line: 1, col: 11 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Elif, pos: Pos { line: 1, col: 30 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Ident("something".to_string()), pos: Pos { line: 1, col: 35 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Then, pos: Pos { line: 1, col: 45 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Else, pos: Pos { line: 1, col: 64 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::End, pos: Pos { line: 1, col: 69 } });
+
     }
 
     #[test]
