@@ -40,3 +40,10 @@ import yes
 // Lists?
 
 x =   [1,2,3,4]
+
+
+// Strings!
+
+x = "Hello \nworld!"
+
+"Hello, World!" "Hello\n world"
