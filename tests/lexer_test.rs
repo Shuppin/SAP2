@@ -102,6 +102,14 @@ mod tests {
 
     }
 
+    #[test]
+    fn string_test() {
+        let src = "\"Hello, World!\" \"Hello\\n world\"";
+        let mut lexer = Lexer::new(src);
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::String("Hello, World!".to_string()), pos: Pos { line: 1, col: 1 } });
+        assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::String("Hello\\n world".to_string()), pos: Pos { line: 1, col: 17 } });
+    }
+
     // endregion
 
     // region: Combined tests
