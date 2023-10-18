@@ -135,6 +135,30 @@ impl Lexer {
         return ident;
     }
 
+    fn read_string(&mut self) -> String {
+        let mut string = String::new();
+        // Consume the opening '"'
+        if self.cur == '"' {
+            self.advance();
+        }
+        else {
+            panic!("Invalid string: {} - String must start with a double quote", self.cur);
+        }
+        // Consume the string
+        while self.cur != '"' {
+            string.push(self.cur);
+            self.advance();
+            match self.cur {
+                '\n' | '\r' => panic!("Unexpected newline while parsing string"),
+                '\0' => panic!("Unexpected end of file while parsing string"),
+                _ => {},
+            }
+        }
+        // Consume the closing '"'
+        self.advance();
+        return string;
+    }
+
     fn read_integer(&mut self) -> String {
         let mut num = String::new();
         if self.cur.is_numeric() {
@@ -201,6 +225,11 @@ impl Lexer {
                     TokenKind::Int(num.parse().unwrap())
                 };
                 return Token { kind, pos: start_pos };
+            }
+
+            else if self.cur == '"' {
+                let string = self.read_string();
+                return Token { kind: TokenKind::String(string), pos: start_pos };
             }
 
             else {

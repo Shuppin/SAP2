@@ -36,6 +36,7 @@ pub enum TokenKind {
     Not,
     // literals
     Ident(String),
+    String(String),
     Int(i32),
     Float(f32),
     Bool(bool),
