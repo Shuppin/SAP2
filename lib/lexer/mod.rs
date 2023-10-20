@@ -1,9 +1,5 @@
-pub mod token;
+pub mod span;
+pub use span::Span;
 pub mod lexer;
+pub mod token;
 pub use lexer::Lexer;
-
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Pos {
-    pub line: usize,
-    pub col: usize,
-}

@@ -1,0 +1,6 @@
+message = "This section is irrelevant"
+x = 10
+print("hello")
+
+y = "AAAAA"
+pi = 3.14

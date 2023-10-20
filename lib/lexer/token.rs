@@ -1,4 +1,4 @@
-use super::Pos;
+use super::Span;
 
 #[derive(Debug, PartialEq)]
 pub enum TokenKind {
@@ -43,21 +43,20 @@ pub enum TokenKind {
     // other
     Eof,
     Seperator,
+    Unknown,
 }
 
 #[derive(Debug, PartialEq)]
 pub struct Token {
     pub kind: TokenKind,
-    pub pos: Pos,
-    // Could be useful for error reporting
-    // pub span: Range<usize>
+    pub span: Span,
 }
 
 impl Token {
     pub fn empty() -> Self {
         Self {
             kind: TokenKind::Eof,
-            pos: Pos { line: 0, col: 0 },
+            span: Span { start: 0, end: 0 },
         }
     }
 }
