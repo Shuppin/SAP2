@@ -43,8 +43,8 @@ pub fn handle_error(error: Error, src_buffer: &str, file_name: &str) {
         let line_num = line_num.saturating_sub(4) + i + 1;
         if lines_enum.peek().is_none() {
             let before_highlight = &line[0..col_num];
-            let highlight = &line[col_num..col_num + span_len];
-            let after_highlight = &line[col_num + span_len..];
+            let highlight = &line[col_num..col_num + span_len + 1];
+            let after_highlight = &line[col_num + span_len + 1..];
             println!(
                 "{colour_cyan}{style_bold}{line_num:>left_pad$} | {colour_reset}{style_reset}{before_highlight}{colour_green}{style_bold}{highlight}{colour_reset}{after_highlight}",
                 line_num = line_num,
