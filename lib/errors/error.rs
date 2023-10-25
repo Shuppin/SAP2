@@ -37,7 +37,10 @@ pub fn handle_error(error: Error, src_buffer: &str, file_name: &str) {
     let blank_pad = " ".repeat(left_pad);
 
     println!("");
-    println!("{colour_cyan}{style_bold}{}--> {colour_reset}{file_name}:{line_num}:{col_num}", blank_pad);
+    println!(
+        "{colour_cyan}{style_bold}{}--> {colour_reset}{file_name}:{line_num}:{col_num}",
+        blank_pad
+    );
     println!("{colour_cyan}{style_bold}{} |", blank_pad);
     while let Some((i, line)) = lines_enum.next() {
         let line_num = line_num.saturating_sub(4) + i + 1;
@@ -69,7 +72,11 @@ pub fn handle_error(error: Error, src_buffer: &str, file_name: &str) {
         );
     }
     println!("");
-    println!("{colour_red}{style_bold} {} {colour_reset}:: {}{colour_reset}{style_reset}", error.error_type.to_string(), error.message);
+    println!(
+        "{colour_red}{style_bold} {} {colour_reset}:: {}{colour_reset}{style_reset}",
+        error.error_type.to_string(),
+        error.message
+    );
 }
 
 /// Returns the line and column number of the given index.

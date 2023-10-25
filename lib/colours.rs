@@ -1,7 +1,7 @@
 //! Colours and styles for terminal output.
-//! 
+//!
 //! This file is a local copy of the inline_colorization crate.
-//! 
+//!
 //! Credits:
 //!  Name: inline_colorization
 //!  Author: Elias Jonsson

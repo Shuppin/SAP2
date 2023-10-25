@@ -12,7 +12,7 @@
 //     use sap::lexer::Pos;
 
 //     // region: Individual tests
-    
+
 //     #[test]
 //     fn seperator() {
 //         let mut lexer = Lexer::new("a;b \nc \r\nd \r\n\r\ne \r\rf \r\r\ng \n\rh");
@@ -130,7 +130,7 @@
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Assign, pos: Pos { line: 1, col: 11 } });
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Float(3.14), pos: Pos { line: 1, col: 13 } });
 //     }
-    
+
 //     #[test]
 //     fn basic_arithmetic() {
 //         let src = "x = 10; y = 20; z = x + y; a = z - x; b = a * z; c = b / a; d = c % b";
@@ -259,7 +259,7 @@
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Ident("j".to_string()), pos: Pos { line: 3, col: 34 } });
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::Then, pos: Pos { line: 3, col: 36 } });
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::End, pos: Pos { line: 3, col: 41 } });
-        
+
 //         let src = "if result then /*Something*/ elif something then /*Something*/ else end";
 //         let mut lexer = Lexer::new(src);
 //         assert_eq!(lexer.get_next_token(), Token { kind: TokenKind::If, pos: Pos { line: 1, col: 1 } });

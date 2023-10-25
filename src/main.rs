@@ -1,9 +1,9 @@
 extern crate sap;
 
 use sap::{
+    colours::*,
     errors::error::handle_error,
     lexer::{token::TokenKind, Lexer},
-    colours::*,
 };
 
 const FILE: &str = "src/grammar.txt";
