@@ -1,4 +1,4 @@
-use crate::core::{Float, Str, Bool};
+use crate::core::{Bool, Float, Str};
 
 pub struct Int {
     pub value: i32,

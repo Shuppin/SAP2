@@ -14,12 +14,12 @@ pub use object::Object;
 
 pub mod bool;
 pub mod float;
+pub mod int;
 pub mod list;
 pub mod str;
-pub mod int;
 
 pub use self::bool::Bool;
-pub use float::Float;
-pub use list::List;
 pub use self::str::Str;
+pub use float::Float;
 pub use int::Int;
+pub use list::List;
